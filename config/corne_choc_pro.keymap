@@ -14,6 +14,46 @@
 };
 
 / {
+    combos {
+        compatible = "zmk,combos";
+
+        combo_bt0 {
+            bindings = <&bt BT_SEL 0>;
+            key-positions = <15 41 44>;
+            timeout-ms = <300>;
+        };
+
+        combo_bt2 {
+            bindings = <&bt BT_SEL 1>;
+            key-positions = <41 44 16>;
+        };
+
+        combo_sunlock {
+            bindings = <&studio_unlock>;
+            key-positions = <41 44 33>;
+        };
+
+        combo_bootloader {
+            bindings = <&bootloader>;
+            key-positions = <41 44 32>;
+        };
+
+        combo_sysreset {
+            bindings = <&sys_reset>;
+            key-positions = <44 41 31>;
+        };
+
+        combo_btclr {
+            bindings = <&bt BT_CLR>;
+            key-positions = <44 41 29>;
+        };
+
+        combo_rgbmode {
+            bindings = <&rgb_ug RGB_TOG>;
+            key-positions = <44 41 30>;
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
@@ -27,10 +67,10 @@
             //                    | GUI | LWR | SPC |               | ENT | RSE  | ALT |
 
             bindings = <
-&kp TAB    &kp Q  &kp W  &kp E     &kp R  &kp T      &kp F18   &kp F19   &kp Y    &kp U  &kp I      &kp O    &kp P     &kp BSPC
+&kp TAB    &kp Q  &kp W  &kp E     &kp R  &kp T      &kp CAPS  &kp F19   &kp Y    &kp U  &kp I      &kp O    &kp P     &kp BSPC
 &kp LCTRL  &kp A  &kp S  &kp D     &kp F  &kp G      &kp LALT  &kp RALT  &kp H    &kp J  &kp K      &kp L    &kp SEMI  &kp SQT
 &kp LSHFT  &kp Z  &kp X  &kp C     &kp V  &kp B                          &kp N    &kp M  &kp COMMA  &kp DOT  &kp FSLH  &kp ESC
-                         &kp LGUI  &mo 1  &kp SPACE                      &kp RET  &mo 2  &kp RALT
+                         &kp LGUI  &mo 1  &kp SPACE                      &kp RET  &mo 2  &mo 3
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_DN C_VOL_UP &inc_dec_kp PG_UP PG_DN &inc_dec_kp C_PREV C_NEXT &inc_dec_kp C_BRI_DN C_BRI_UP>;
@@ -46,10 +86,10 @@
             //                    | GUI |     | SPC   |        | ENT   |     | ALT |
 
             bindings = <
-&kp TAB    &kp N1        &kp N2           &kp N3        &kp N4        &kp N5          &kp LCTRL  &kp RCTRL  &kp N6    &kp N7    &kp N8     &kp N9     &kp N0  &kp BSPC
-&kp LCTRL  &bt BT_SEL 0  &bt BT_SEL 1     &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4    &kp LALT   &kp RALT   &kp LEFT  &kp DOWN  &kp UP     &kp RIGHT  &trans  &trans
-&kp LSHFT  &bt BT_CLR    &rgb_ug RGB_TOG  &sys_reset    &bootloader   &studio_unlock                        &trans    &trans    &trans     &trans     &trans  &trans
-                                          &kp LGUI      &trans        &kp SPACE                             &kp LGUI  &trans    &kp SPACE
+&kp TAB    &kp N1  &kp N2     &kp N3        &kp N4        &kp N5        &kp LCTRL  &kp RCTRL  &kp N6    &kp N7    &kp N8     &kp N9     &kp N0  &kp BSPC
+&kp LCTRL  &trans  &kp LC(S)  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4  &kp LALT   &kp RALT   &kp LEFT  &kp DOWN  &kp UP     &kp RIGHT  &trans  &trans
+&kp LSHFT  &trans  &trans     &kp LC(C)     &kp LC(V)     &trans                              &trans    &trans    &trans     &trans     &trans  &trans
+                              &kp LGUI      &trans        &kp SPACE                           &kp LGUI  &trans    &kp SPACE
             >;
         };
 
