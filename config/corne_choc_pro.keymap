@@ -73,6 +73,15 @@
         };
     };
 
+    macros {
+        mac_prscr: mac_prscr {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LS(LG(NUMBER_4))>;
+            label = "MAC_PRSCR";
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
@@ -132,10 +141,10 @@
         Numpad_Layer {
             display-name = "numpad";
             bindings = <
-&trans          &trans  &kp F1  &kp F2    &kp F3   &kp F4   &kp HASH     &kp STAR  &kp PLUS   &kp N1  &kp N2  &kp N3  &kp COMMA  &kp GREATER_THAN
-&kp LCTRL       &trans  &kp F5  &kp F6    &kp F7   &kp F8   &kp PERCENT  &kp FSLH  &kp MINUS  &kp N4  &kp N5  &kp N6  &kp DOT    &kp LESS_THAN
-&kp LEFT_SHIFT  &trans  &kp F9  &kp F10   &kp F11  &kp F12                         &kp EQUAL  &kp N7  &kp N8  &kp N9  &kp N0     &kp EQUAL
-                                &kp LGUI  &trans   &trans                          &trans     &trans  &trans
+&mac_prscr      &trans  &kp F1  &kp F2    &kp F3   &kp F4   &kp HASH     &kp KP_MULTIPLY  &kp KP_PLUS      &kp N1  &kp N2  &kp N3  &kp KP_COMMA  &kp KP_LEFT_PARENTHESIS
+&kp LCTRL       &trans  &kp F5  &kp F6    &kp F7   &kp F8   &kp PERCENT  &kp KP_DIVIDE    &kp KP_SUBTRACT  &kp N4  &kp N5  &kp N6  &kp KP_DOT    &kp KP_RIGHT_PARENTHESIS
+&kp LEFT_SHIFT  &trans  &kp F9  &kp F10   &kp F11  &kp F12                                &kp EQUAL        &kp N7  &kp N8  &kp N9  &kp N0        &kp KP_EQUAL
+                                &kp LGUI  &trans   &trans                                 &trans           &trans  &trans
             >;
         };
 
